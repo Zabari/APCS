@@ -1,0 +1,32 @@
+//driver file for class Person
+
+public class PersonApp {
+
+    public static void main( String[] args ) {
+
+	// Uncomment one section at at time, below, to test
+	// your Person class. (Hint: Use C-k, C-y to move the 
+	// top bar down...
+
+
+
+	Person Kirk = new Person();
+	System.out.println("Testing Kirk...");
+	System.out.println(Kirk); //should show def.face & Will's name
+
+	Person Spock = new Person("Leonard", "Nimoy");
+	System.out.println("Testing Spock...");
+	System.out.println(Spock); //should yield "null" & Leonard's name
+
+	Person Scotty = new Person("James", "Doohan", 
+				   new Face("|||||||",
+					    "| X X |",
+					    "|( 0 )|", 
+					    "|  v  |"));
+	System.out.println("Testing Scotty...");
+	System.out.println(Scotty); //should yield ASCII face & James's name
+	/* ==================================
+	================================== */
+    }
+
+}//end class PersonApp

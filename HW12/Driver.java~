@@ -1,0 +1,43 @@
+public class Driver {
+    private static String ret;
+    public static void main( String[] args ) {
+
+	BankAccount me=new BankAccount("Me", "narcissist" );
+	BankAccount you=new BankAccount("You","whocares" );
+	me.deposit(10);
+	you.deposit(10);
+	Coin mine = new Coin("quarter");
+	Coin yours = new Coin("dime");
+	me.withdraw(mine.getVal());
+	you.withdraw(yours.getVal());
+
+
+	System.out.println("\nmy Coin: " + mine+me);
+	System.out.println("\nyour Coin: " + yours +you);
+
+	yours.flip();
+	mine.flip();
+
+
+
+	if ( yours.nameEquals(mine) ) {
+	    if (yours.getName().equals("tails")){
+		    you.deposit(mine.getVal()+yours.getVal());
+		    ret="Tails.  Money goes to you.";
+		}else {
+		me.deposit(yours.getVal()+mine.getVal());
+		ret="Heads. Money goes to me.";
+	    }
+	}else{
+	    me.deposit(mine.getVal());
+	    you.deposit(yours.getVal());
+	    ret= "No match. Money returns to original owners.";
+	}
+	System.out.println("\nAfter flipping...");
+	System.out.println("\nmy Coin: " + mine +me);
+	System.out.println("your Coin: " + yours +you);
+	System.out.println(ret);
+
+    }//end main
+
+}//end class

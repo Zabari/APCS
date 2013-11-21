@@ -1,0 +1,64 @@
+public class Coin{
+    private double value;
+    private String upFace;
+    private String name;
+    private int flipCtr;
+    private int headsCtr;
+    private int tailsCtr;
+    private double bias;
+
+    public Coin (){
+	reset("heads", .5);
+    }
+    public Coin (String nm){
+	this();
+	name = nm;
+    }
+    public Coin (String nm, String face){
+	this(nm);
+	upFace=face;
+    }
+    public String flip(){
+	if (Math.random()>=bias){
+	    upFace="tails";
+	    tailsCtr+=1;
+	}else{
+	    upFace="heads";
+	    headsCtr+=1;
+	}
+	flipCtr+=1;
+	return upFace;
+    }
+    public String toString(){
+	String str=name+"--"+upFace;
+	return str;
+    }
+    public boolean equals(Coin nm){
+	return upFace.equals(nm.upFace);
+    }
+    public void assignValue(){
+	if (name.equals( "quarter" ))
+		    value=.25;
+	if (name.equals("penny"))
+		    value = .01;
+	if (name.equals("nickel"))
+		    value=.05;
+	if (name.equals("dollar"))
+		    value=1;
+	if (name.equals("half-dollar"))
+		    value=.50;
+	if (name.equals("dime"))
+		    value=.10;
+
+    }
+    public void reset(String face,double b){
+	upface=face;
+	tailsCtr=0;
+	headsCtr=0;
+	flipCtr=0;
+	if (b>=0 && b<=1){
+	    bias=b;
+	}else {
+	    bias =.5;
+	}
+}
