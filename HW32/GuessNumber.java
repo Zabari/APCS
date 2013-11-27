@@ -91,7 +91,7 @@ public class GuessNumber {
 	    guess=Keyboard.readInt();
 	    _guessCtr++;
 	    System.out.println(guess==_target ? correct : guess < _target ? tooLow : tooHigh);
-	    if (!(guess<_lo || guess>_hi)){
+	    if (!((guess<_lo) || (guess>_hi))){
 		if (guess<_target)
 		    _lo=guess+1;
 		else if (guess > _target)
