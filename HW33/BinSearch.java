@@ -1,8 +1,7 @@
-/*==================================================
-  class BinSearch
-  skeleton file
-  ==================================================*/
-
+// DANIEL ZABARI
+// pd 9
+// HW33
+// 2013-11-27
 public class BinSearch {
 
 
@@ -13,8 +12,8 @@ public class BinSearch {
       ==================================================*/
     public static int binSearch ( int[] a, int target ) {
 	//uncomment exactly 1 of the 2 stmts below:
-	//return binSearchIter( a, target, 0, a.length-1 );
-	return binSearchRec( a, target, 0, a.length-1 );
+	return binSearchIter( a, target, 0, a.length-1 );
+	//return binSearchRec( a, target, 0, a.length-1 );
     }
 
 
@@ -24,7 +23,6 @@ public class BinSearch {
 	    return -1;
 	return (a[i]==target)? i : (a[i]>target)? binSearchRec(a,target,lo ,i-1) : binSearchRec(a,target,i+1,hi);
     }
-
 
     public static int binSearchIter( int[] a, int target, int lo, int hi ) {
 	int i;
