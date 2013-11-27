@@ -22,13 +22,22 @@ public class BinSearch {
 	int i=(int) ((lo+hi)/2);
 	if (lo==hi && i!=target )
 	    return -1;
-	return (a[i]==target)? i : a[i]>target? binSearchRec(a,target,i+1,hi) : binSearchRec(a,target,lo,i-1);
+	return (a[i]==target)? i : (a[i]>target)? binSearchRec(a,target,lo ,i-1) : binSearchRec(a,target,i+1,hi);
     }
 
 
     public static int binSearchIter( int[] a, int target, int lo, int hi ) {
-	//*** YOUR IMPLEMENTATION HERE *** 
-	return -1; //placeholder
+	int i;
+	while (lo!=hi){
+	    i= (int) ((lo+hi)/2);
+	    if (a[i]==target)
+		return i;
+	    if (a[i]>target)
+		hi=i-1;
+	    else if (a[i]< target)
+		lo=i+1;
+	}
+	return -1;
     }
 
 
@@ -36,7 +45,7 @@ public class BinSearch {
     //tell whether an array is sorted in ascending order
     private static boolean isSorted( int[] arr ) {
 	boolean retBoo=true;
-	int last;
+	int last=0;
 	for  (int i=0;i<arr.length && retBoo;i++){
 	    if ( i>0)
 		retBoo=arr[i]>last;
@@ -62,7 +71,7 @@ public class BinSearch {
     //main method for testing
     public static void main ( String[] args ) {
 
-	/*==================================================
+
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	System.out.println("\nNow testing binSearch on int array...");
@@ -82,7 +91,7 @@ public class BinSearch {
 	//search for 43 in array 
 	System.out.println( binSearch(iArr,43) );
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+	/*==================================================
 	==================================================*/
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
