@@ -19,14 +19,14 @@ public class BinSearch2 {
 
     public static int binSearchRec( Comparable[] a, Comparable target, int lo, int hi ) {
 	int i=(int) ((lo+hi)/2);
-	if (!(lo>hi) )
+	if (lo==hi && (a[i].compareTo(target)!=0) )
 	    return -1;
 	return (a[i].compareTo(target)==0)? i : (a[i].compareTo(target)>0)? binSearchRec(a,target,lo ,i-1) : binSearchRec(a,target,i+1,hi);
     }
 
     public static int binSearchIter( Comparable[] a, Comparable target, int lo, int hi ) {
 	int i;
-	while (!(lo>hi)){
+	while ((!(lo>hi))){
 	    i= (int) ((lo+hi)/2);
 	    if (a[i].compareTo(target)==0)
 		return i;
@@ -86,8 +86,8 @@ System.out.println("\nNow testing binSearch on int array...");
 	//search for 23 in array -- extra test!
 	System.out.println( binSearch(iArr2,23) );
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	/*==================================================
-	==================================================*/
+
+
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//Testing on a Binary Array
 	System.out.println("\nNow testing binSearch on Binary array...");
@@ -139,5 +139,6 @@ System.out.println("\nNow testing binSearch on int array...");
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     }//end main()
-
+	/*==================================================
+	==================================================*/
 }//end class BinSearch
