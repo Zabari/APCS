@@ -1,3 +1,7 @@
+// DANIEL ZABARI
+// pd 9
+// HW36
+// 2013-12-03
 /*==================================================
   class SuperArray
   Wrapper class for array. Facilitates resizing, 
