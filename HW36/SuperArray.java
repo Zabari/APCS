@@ -14,9 +14,9 @@ public class SuperArray {
     //default constructor
     //initializes 10-item array
     public SuperArray() { 
-	Object[] _data=new Object[10];
+         _data=new int[10];
 	_size=_data.length;
-	_lastPos=0;
+	_lastPos=_size-1;
 
     }
 
@@ -35,12 +35,11 @@ public class SuperArray {
 
     //double capacity of this instance of SuperArray 
     private void expand() { 
-	nArray=new Object[_size*2];
+	int[] nArray=new int[_size*2];
 	for (int i=0;i<_size;i++){
 	    nArray[i]=_data[i];
 	}
 	_data=nArray;
-	_size=_data.length;
     }
 
 
@@ -52,6 +51,7 @@ public class SuperArray {
 
     //mutator method -- set index to newVal, return old value at index
     public int set( int index, int newVal ) {
+	int oldVal;
 	oldVal=(int) _data[index]; 
 	_data[index]=newVal;	
 	return oldVal;    
@@ -60,7 +60,7 @@ public class SuperArray {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*===========================================
+
 	SuperArray curtis = new SuperArray();
 	System.out.println( "Printing empty SuperArray curtis..." );
 	System.out.println( curtis );
@@ -72,7 +72,7 @@ public class SuperArray {
 
 	System.out.println("Printing populated SuperArray curtis...");
 	System.out.println(curtis);
-	===========================================*/
+	/*===========================================	===========================================*/
 
     }
 
