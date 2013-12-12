@@ -1,3 +1,7 @@
+// CHRIS KIM; DANIEL ZABARI; PETER DUCHOVNI; Team of three?
+// pd 9
+// HW42
+// 2013-12-12
 /*=====================================
   class CandidatePool -- 
 
@@ -53,14 +57,13 @@ public class CandidatePool {
 
 
 
-    //YOUR WORK BELOW:
     public ArrayList<Candidate> getCandidatesForPosition( String pos ) {
 
 	ArrayList<Candidate> posCand = new ArrayList<Candidate>();
 	for (int i = 0; i < pool.size(); ++i) {
 	    if (pool.get(i).getPosition() == pos) {
 		posCand.add(pool.get(i));
-	   }
+	    }
 	}
 	return posCand;
     }
@@ -68,25 +71,32 @@ public class CandidatePool {
 
     public Candidate getBestCandidate( String pos ) { 
 	Candidate best = (Candidate) null;
-	int bestScore;
+	double bestScore=0;
 	ArrayList<Candidate> posPool = getCandidatesForPosition(pos);
 	
 	for (int i = 0; i < posPool.size(); ++i) {
 	    if (i == 0) {
 		best = posPool.get(0);
-	   } else {
+	    } else {
 		if (posPool.get(i).getInterviewScore() > bestScore)
-		best = posPool.get(i);
-	   }
-	  bestScore = best.getInterviewScore();
-      }
-    return best;
-}
+		    best = posPool.get(i);
+	    }
+	    bestScore = best.getInterviewScore();
+	}
+	return best;
+    }
 
 
     public int removeCandidatesForPosition( String pos ) {
-	//*** YOUR IMPLEMENTATION HERE ***
+	int len=pool.size();
+	for (int i = 0; i < pool.size(); ++i) {
+	    if (pool.get(i).getPosition() == pos) {
+		pool.remove(i);
+	    }
+	}
+	return len-pool.size();
     }
+    
 
 
 }//end class CandidatePool
