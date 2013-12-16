@@ -61,7 +61,7 @@ public class CandidatePool {
 
 	ArrayList<Candidate> posCand = new ArrayList<Candidate>();
 	for (int i = 0; i < pool.size(); ++i) {
-	    if (pool.get(i).getPosition() == pos) {
+	    if (pool.get(i).getPosition().equals(pos)) {
 		posCand.add(pool.get(i));
 	    }
 	}
@@ -89,8 +89,8 @@ public class CandidatePool {
 
     public int removeCandidatesForPosition( String pos ) {
 	int len=pool.size();
-	for (int i = 0; i < pool.size(); ++i) {
-	    if (pool.get(i).getPosition() == pos) {
+	for (int i = pool.size()-1; i>=0;i-- ) {
+	    if (pool.get(i).getPosition().equals(pos)) {
 		pool.remove(i);
 	    }
 	}
