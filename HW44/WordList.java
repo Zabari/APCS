@@ -1,3 +1,7 @@
+// DANIEL ZABARI
+// pd 9
+// HW44
+// 2013-12-18
 /*========================================
 Another sample AP question. 1 of 4 free-response questions, 
 for which you will have about 1hr45min.
@@ -12,14 +16,11 @@ import java.util.ArrayList;
 
 public class WordList {
 
-    public ArrayList<String> myList=new ArrayList<String>(); // contains Strings made up of letters
+    private ArrayList<String> myList; // contains Strings made up of letters
 
-    public WordList(){
-	myList.add("cat");
-	myList.add("mouse");
-	myList.add("frog");
-	myList.add("dog");
-	myList.add("dog");
+    public WordList(ArrayList nl){
+	myList=nl;
+
     }
     //postcond: returns the number of words in this WordList that are 
     //          exactly len letters long
@@ -41,18 +42,17 @@ public class WordList {
 		myList.remove(i);
 	}
     }
-
+    /*
     public static void main(String[] args){
 	
-	/*
+
 	String[] s1= {"cat", "mouse", "frog", "dog", "dog"};
 	ArrayList<String> as1=new ArrayList<String>();
 	for (String s:s1){
 	    as1.add(s);
 	}
-	ArrayList<String> as2=as1;
-	*/
-	WordList as2=new WordList();
+
+	WordList as2=new WordList(as1);
 
 
 
@@ -71,6 +71,7 @@ public class WordList {
 	as2.removeWordsOfLength(2);       //["mouse"]
 	System.out.println(as2.myList);
     }
+    */
 }
 
 	

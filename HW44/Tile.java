@@ -1,3 +1,7 @@
+// DANIEL ZABARI
+// pd 9
+// HW44
+// 2013-12-18
 /*========================================
 class Tile
 Intended for use with class Concentration.
@@ -30,9 +34,9 @@ public class Tile {
 
     //overridden equals method
     public boolean equals( Object rightSide ) {
-	if (((Object)this).toString()!=rightSide.toString()){
+	if (this!=rightSide){
 	    if (rightSide instanceof Tile){
-		if (this.toString()==((Tile)rightSide.toString())){
+		if (this.toString()==((Tile)rightSide).toString()&&(!(((Tile)rightSide).isFaceUp() ^this.isFaceUp()))){
 		    return true;
 		}
 	    }
