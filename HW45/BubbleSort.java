@@ -1,4 +1,7 @@
-
+// DANIEL ZABARI
+// pd 9
+// HW45
+// 2013-12-19
 /*======================================
   class BubbleSort -- implements bubblesort algorithm
   ======================================*/
@@ -13,18 +16,28 @@ public class BubbleSort {
     public static ArrayList populate( int size, int lo, int hi ) {
         ArrayList<Integer> retAL = new ArrayList<Integer>();
 
-        //***INSERT YOUR CODE HERE***
-
+	while (hi>=lo){
+	    retAL.add(lo);
+	    lo+=size;
+	}
+        shuffle(retAL);
         return retAL;
     }
 
 
     //randomly rearrange elements of an ArrayList
     public static void shuffle( ArrayList al ) {
-        //***INSERT YOUR CODE HERE***
+	int n=0;
+	Object c,c2;
+	for (int i=0;i<al.size();i++){
+	    n= (int) (Math.random()*al.size());
+	    c=al.get(i);
+	    c2=al.get(n);
+	    al.set(i,c2);
+	    al.set(n,c);
+	}
 
     }
-
 
     // VOID version of bubbleSort
     // Rearranges elements of input ArrayList
@@ -59,16 +72,33 @@ public class BubbleSort {
     //                Returns sorted copy of data.
     public static ArrayList<Comparable> bubbleSort( ArrayList<Comparable> input ) {
         //declare and initialize empty ArrayList for copying
-        ArrayList<Comparable> data = new ArrayList<Comparable>();
+        ArrayList<Comparable> data = input;
 
-        //***INSERT YOUR CODE HERE***
+	int size=data.size()-1;
+	int n=0;
+	while (size>=0){
+	    n=0;
+	    for (int i=0;i<data.size()-1;i++){
+		Comparable st=data.get(i);
+		Comparable nd=data.get(i+1);
+		if (st.compareTo(nd)>0){
+		    data.set(i+1,st);
+		    data.set(i,nd);
+		    n++;
+		}
+	    }
+		if (n==0)
+		    break;
+		size--;
+	}
+    
 
         return data;
     }//end bubbleSort -- O(?)
 
 
     public static void main(String [] args){
-
+/*===============for VOID methods=============     
 
         ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
@@ -79,14 +109,15 @@ public class BubbleSort {
         System.out.println( "ArrayList glen before sorting:\n" + glen );
         bubbleSortV(glen);
         System.out.println( "ArrayList glen after sorting:\n" + glen );
-        /*===============for VOID methods=============
+     
         ArrayList coco = populate( 10, 1, 1000 );
         System.out.println( "ArrayList coco before sorting:\n" + coco );
         bubbleSortV(coco);
         System.out.println( "ArrayList coco after sorting:\n" + coco );
-          ============================================*/
+   
+     ============================================*/
 
-        /*==========for AL-returning methods==========
+
             ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
         glen.add(1);
@@ -104,8 +135,7 @@ public class BubbleSort {
         ArrayList cocoSorted = bubbleSort( coco );
         System.out.println( "sorted version of ArrayList coco:\n" 
                             + cocoSorted );
-        System.out.println( "ArrayList coco after sorting:\n" + coco );
-        System.out.println( coco );
+        /*==========for AL-returning methods==========
           ============================================*/
 
     }//end main
