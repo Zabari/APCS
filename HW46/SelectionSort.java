@@ -42,26 +42,36 @@ public class SelectionSort {
     // postcondition: data's elements sorted in ascending order
     public static void selectionSortV( ArrayList<Comparable> data ) {
 	int iMin=0;
-Comparable min=
 	int size=data.size();
 	int p=0;
 	while (p<size){
-	    for (int i=0;i<size;i++){
-		if (
+	    for (int i=p;i<size;i++){
+		if ((data.get(iMin)).compareTo(data.get(i))>0){
+		    iMin=i;
+		}
+	    }
+	    data.set(iMin,data.set(p,data.get(iMin)));
+	    p++;
+	    iMin=p;
+	}
+    
 
     }//end selectionSortV -- O(n^2)
 
 
-    // ArrayList-returning selectionSort
-    // postcondition: order of input ArrayList's elements unchanged
-    //                Returns sorted copy of input ArrayList.
+// ArrayList-returning selectionSort
+// postcondition: order of input ArrayList's elements unchanged
+//                Returns sorted copy of input ArrayList.
     public static ArrayList<Comparable> selectionSort( ArrayList<Comparable> input ) {
+	ArrayList<Comparable> retList=input;
+	selectionSortV(retList);
+	return retList;
     }//end selectionSort, O(n^2)
 
 
-    public static void main( String [] args ) {
+public static void main( String [] args ) {
 
-        /*===============for VOID methods=============
+  /*===============for VOID methods=============
         ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
         glen.add(1);
@@ -76,9 +86,10 @@ Comparable min=
         System.out.println( "ArrayList coco before sorting:\n" + coco );
         selectionSortV(coco);
         System.out.println( "ArrayList coco after sorting:\n" + coco );
+      
           ============================================*/
 
-        /*==========for AL-returning methods==========
+       
             ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
         glen.add(1);
@@ -98,7 +109,8 @@ Comparable min=
                             + cocoSorted );
         System.out.println( "ArrayList coco after sorting:\n" + coco );
         System.out.println( coco );
-          ============================================*/
+ /*==========for AL-returning methods==========      
+    ============================================*/
 
     }//end main
 
