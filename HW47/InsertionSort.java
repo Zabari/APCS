@@ -4,6 +4,21 @@
 //14-01-03
 /*======================================
   class InsertionSort -- implements InsertionSort algorithm
+Q1: Is more work done toward beginning or end of insertion sort? Why?
+Q2: For n items, how many passes are necessary to sort?
+Q3: What is known after pass p, and how do you know it?
+Q4: What is the runtime classification of this sort?
+
+A1:More work is done towards the end, because each "new" element has to be checked against the sorted elements.  As teh code progresses, more elements are sorted, and therefore, more work has to be done.
+
+A2:For n items, (((n+1)n)/2)/n is the number of passes for n items.  Technically, n passes are being made, but because the length of the list of elements is "changing", this formula is more accurate in terms of the list of n.
+
+A3:AFter pass p, p items are sorted, beacuse during each pass one element is sorted.
+
+A4:The runtime classification is O(n^2).
+
+
+
   ======================================*/
 
 import java.util.ArrayList;
@@ -44,16 +59,18 @@ public class InsertionSort {
 	int b=0;
 	int temp=0;
 	for (int i=0;i<data.size();i++){
-	    for (int j=0;j<b;j++){
-		temp=b;	
-		if (temp==b && data.get(temp).compareTo(data.get(b-1))>=0){
+	    for (int j=b;j>0;j--){
+		temp=j;	
+		if (data.get(temp).compareTo(data.get(temp-1))>=0){
 		    break;
 		}
-		else if 
+		else {
+		    data.set(temp, (data.set(temp-1,data.get(temp))));
+		}
 	    }	
 	    temp=0;	
 	    b++;
-    
+	}
 
     }//end insertionSortV, 
 
@@ -70,7 +87,7 @@ public class InsertionSort {
 
 public static void main( String [] args ) {
 
-  /*===============for VOID methods=============
+  /*===============for VOID methods=============      
         ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
         glen.add(1);
@@ -85,9 +102,9 @@ public static void main( String [] args ) {
         System.out.println( "ArrayList coco before sorting:\n" + coco );
         insertionSortV(coco);
         System.out.println( "ArrayList coco after sorting:\n" + coco );
-      
+
           ============================================*/
- /*==========for AL-returning methods==========      
+
        
             ArrayList glen = new ArrayList<Integer>();
         glen.add(7);
@@ -108,7 +125,7 @@ public static void main( String [] args ) {
                             + cocoSorted );
         System.out.println( "ArrayList coco after sorting:\n" + coco );
         System.out.println( coco );
-
+ /*==========for AL-returning methods==========      
     ============================================*/
 
     }//end main
